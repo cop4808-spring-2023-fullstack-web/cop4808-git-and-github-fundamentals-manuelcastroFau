@@ -17,16 +17,16 @@ html {
 #container {
     background-color: black;
     border: 10px solid rgba(47,47,47,1);
-    border-radius: 4px;
+    border-radius: 8px;
     display: grid;
     grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+    grid-template-rows: minmax(100px, auto) repeat(6, 80px);
     gap: 2px;
 }
 
 #display {
     grid-column: 1 / -1;
-    background-color: #b2b9b7;
+    background-color: #a7b303;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -47,7 +47,6 @@ button {
     font-family: monospace;
     color: black;
 }
-
 
 #zero {
     grid-column: span 2;
@@ -108,3 +107,27 @@ button {
 .percent:active {
     background-color: rgb(123, 189, 255);
 }
+
+.operand-special {
+    background-color: rgb(37, 247, 247);
+}
+
+.operand-special:active {
+    background-color: rgb(123, 189, 255);
+}
+
+/* 
+/* console-cursor text-dark */
+#text-cursor {
+    color:#FF8F1F;
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity));
+}
+/* .console-cursor {
+    animation: blinker 0.5s step-start infinite;
+} */
+
+#znumber {
+    color: #740909;
+
+} 
