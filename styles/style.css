@@ -110,6 +110,7 @@ button {
 
 .operand-special {
     background-color: rgb(37, 247, 247);
+    font-weight: 700;
 }
 
 .operand-special:active {
