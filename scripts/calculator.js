@@ -29,6 +29,21 @@ function clickButton() {
                 updateDisplay();
             } else if(buttons[i].classList.contains('operator')) {
                 inputOperator(buttons[i].value);
+            } else if(buttons[i].classList.contains('operand-special')) {
+                console.log(buttons[i].value);
+                if(buttons[i].classList.contains('sqrt')) {
+                    inputSqrt(displayValue);
+                    updateDisplay();
+                } else if(buttons[i].classList.contains('factorial')) {
+                    inputFactorial(displayValue);
+                    updateDisplay();
+                } else if(buttons[i].classList.contains('e_to_x')) {
+                    inputEtoX(displayValue);
+                    updateDisplay();
+                }else {
+                    inputLogBase10(displayValue);
+                    updateDisplay();
+                } 
             } else if(buttons[i].classList.contains('equals')) {
                 inputEquals();
                 updateDisplay();
@@ -145,6 +160,32 @@ function inputPercent(num) {
 
 function inputSign(num) {
     displayValue = (num * -1).toString();
+}
+
+function inputSqrt(num) {
+    displayValue = String((Math.sqrt(num))).substring(0, 9);
+    console.log(displayValue);
+}
+
+function inputLogBase10(num) {
+    displayValue = String((Math.log10(num))).substring(0, 9);
+    console.log(displayValue);
+}
+
+function inputFactorial(num) {
+    let result = 1;
+    for (let i = 1; i <= num; i++) {
+        result *= i;
+    }
+    displayValue = String(result).substring(0, 9);
+    console.log(displayValue);
+}
+
+function inputEtoX(num) {
+    var temp = Math.exp(num);
+    displayValue = String(temp).substring(0, 9);
+    console.log(displayValue);
+    console.log(displayValue);
 }
 
 function clearDisplay() {
