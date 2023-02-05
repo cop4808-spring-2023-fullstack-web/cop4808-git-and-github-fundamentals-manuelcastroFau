@@ -28,7 +28,11 @@ function clickButton() {
                 inputOperand(buttons[i].value);
                 updateDisplay();
             } else if(buttons[i].classList.contains('operator')) {
-                inputOperator(buttons[i].value);
+                inputOperator(buttons[i].value);      
+            /*
+                Depending of the Button cliked class we will call the correspondent function 
+                and update the calculator display 
+            */
             } else if(buttons[i].classList.contains('operand-special')) {
                 console.log(buttons[i].value);
                 if(buttons[i].classList.contains('sqrt')) {
@@ -162,16 +166,25 @@ function inputSign(num) {
     displayValue = (num * -1).toString();
 }
 
+/*
+    Function to calc square root of a number 
+*/
 function inputSqrt(num) {
     displayValue = String((Math.sqrt(num))).substring(0, 9);
     console.log(displayValue);
 }
 
+/*
+    Function to calc log base10 of x 
+*/
 function inputLogBase10(num) {
     displayValue = String((Math.log10(num))).substring(0, 9);
     console.log(displayValue);
 }
 
+/*
+    Function to calc factorial fo x
+*/
 function inputFactorial(num) {
     let result = 1;
     for (let i = 1; i <= num; i++) {
@@ -181,6 +194,9 @@ function inputFactorial(num) {
     console.log(displayValue);
 }
 
+/*
+    Function to calc euler raise to X
+*/
 function inputEtoX(num) {
     var temp = Math.exp(num);
     displayValue = String(temp).substring(0, 9);
