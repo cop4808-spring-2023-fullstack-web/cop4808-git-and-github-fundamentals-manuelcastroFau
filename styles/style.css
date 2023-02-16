@@ -113,12 +113,12 @@ button {
     also change the active color to a one taht looks nice
     with the neew button color
  */
-.operand-special {
+.operandSpecial {
     background-color: rgb(37, 247, 247);
     font-weight: 700;
 }
 
-.operand-special:active {
+.operandSpecial:active {
     background-color: rgb(123, 189, 255);
 }
 

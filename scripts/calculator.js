@@ -7,8 +7,28 @@ let result = null;
 const buttons = document.querySelectorAll('button');
 
 window.addEventListener('keydown', function(e){
-    const key = document.querySelector(`button[data-key='${e.keyCode}']`);
+    const k = e.key;
+    console.log('key: '+k);
+    const regex = /[^\s]+/;
+    // have to appl a regex since some keys has several classes applied
+    const key = document.querySelector([`[data-key="${k}"]`]);
     key.click();
+    var classCurrent=key.classList.toString().match(regex);
+    console.log("class   -> "+classCurrent);9
+    const classToApply = {
+        operand: "operand:active",
+        operandSpecial: "operandSpecial:active",
+        clear: "clear:active",
+        sign: "sign:active",
+        decimal: "decimal:active",
+        percent: "percent:active"
+        };
+    // This will apply the same css effect as we do when manually click 
+    key.classList.replace(classCurrent,classToApply[classCurrent]);
+    setTimeout(function () {
+        key.classList.replace(classToApply[classCurrent],classCurrent);
+    }, 100);
+    console.log(key.classList);
 });
 
 function updateDisplay() {
@@ -85,7 +105,7 @@ function inputOperand(operand) {
         if(displayValue === firstOperand) {
             displayValue = operand;
         } else {
-            displayValue += operand;
+        displayValue += operand;
         }
     }
 }
