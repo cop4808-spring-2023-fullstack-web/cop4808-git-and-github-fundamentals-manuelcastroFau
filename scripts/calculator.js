@@ -102,7 +102,15 @@ function inputOperand(operand) {
         }
     } else {
         //3rd/5th click - inputs to secondOperand
-        if(displayValue === firstOperand) {
+        ///IMPORTANT 
+        // Code was buggy here so I did an small fix I checked before the operation 
+        // that second operand is null in that is the case I assigned the curremt operand
+        // this will avoid that the in the case of same string between firstOperand 
+        // and displayValue the future second operator will cut
+        // in reality the second operand takes the value in inputOperator function and i set it
+        // so after the function run (inputOperator )it will set back to null to avoid errors
+        if(displayValue === firstOperand && secondOperand== null) {
+            secondOperand = operand;
             displayValue = operand;
         } else {
         displayValue += operand;
@@ -119,6 +127,7 @@ function inputOperator(operator) {
         displayValue = roundAccurately(result, 15).toString();
         firstOperand = displayValue;
         result = null;
+        secondOperand = null;
     } else if(firstOperator != null && secondOperator != null) {
         //6th click - new secondOperator
         secondOperand = displayValue;
@@ -127,7 +136,9 @@ function inputOperator(operator) {
         displayValue = roundAccurately(result, 15).toString();
         firstOperand = displayValue;
         result = null;
-    } else { 
+        secondOperand = null;
+    }
+    else { 
         //2nd click - handles first operator input
         firstOperator = operator;
         firstOperand = displayValue;
